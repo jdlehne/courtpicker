@@ -46,7 +46,236 @@
     }
 
     function MM_swapImage() { //v3.0
+      var i, j = 0,<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" media="all" href="https://www.sportmaster.net/wp-content/themes/twentytwelve/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="https://www.sportmaster.net/wp-content/themes/twentytwelve/css/sportmaster.css" />
+  <script type="text/javascript" src="https://www.sportmaster.net/wp-content/themes/twentytwelve/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://www.sportmaster.net/wp-content/themes/twentytwelve/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://www.sportmaster.net/wp-content/themes/twentytwelve/js/owl.carousel.min.js"></script>
+
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i, x, a = document.MM_sr;
+      for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+    }
+
+    function MM_preloadImages() { //v3.0
+      var d = document;
+      if (d.images) {
+        if (!d.MM_p) d.MM_p = new Array();
+        var i, j = d.MM_p.length,
+          a = MM_preloadImages.arguments;
+        for (i = 0; i < a.length; i++)
+          if (a[i].indexOf("#") != 0) {
+            d.MM_p[j] = new Image;
+            d.MM_p[j++].src = a[i];
+          }
+      }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p, i, x;
+      if (!d) d = document;
+      if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+        d = parent.frames[n.substring(p + 1)].document;
+        n = n.substring(0, p);
+      }
+      if (!(x = d[n]) && d.all) x = d.all[n];
+      for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+      for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+      if (!x && d.getElementById) x = d.getElementById(n);
+      return x;
+    }
+
+    function MM_swapImage() { //v3.0
       var i, j = 0,
+        x, a = MM_swapImage.arguments;
+      document.MM_sr = new Array;
+      for (i = 0; i < (a.length - 2); i += 3)
+        if ((x = MM_findObj(a[i])) != null) {
+          document.MM_sr[j++] = x;
+          if (!x.oSrc) x.oSrc = x.src;
+          x.src = a[i + 2];
+        }
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".color-bx").click(function() {
+
+        type = $(this).attr('data-type');
+
+        if (type == "inner-court") {
+
+          colour = $(this).attr('data-link');
+          alt_tag = $(this).attr('data-original-title');
+          inner_path = "http://www.sportmaster.net/wp-content/themes/twentytwelve/images/inner-court/";
+
+          if (colour != '') {
+            newpath = inner_path + colour + ".png";
+            $("#inner-court").attr("src", "" + newpath + "");
+            $("#inner-court").attr("alt", "" + alt_tag + "");
+          }
+
+        } else if (type == "outer-court") {
+
+          colour = $(this).attr('data-link');
+          alt_tag = $(this).attr('data-original-title');
+          inner_path = "http://www.sportmaster.net/wp-content/themes/twentytwelve/images/outer-court/";
+
+          if (colour != '') {
+            newpath = inner_path + colour + ".png";
+            $("#outer_court").attr("src", "" + newpath + "");
+            $("#outer_court").attr("alt", "" + alt_tag + "");
+          }
+        }
+
+      });
+
+      $(".color-bx").tooltip({
+        placement: 'top'
+      });
+
+      $("#myCarousel").carousel();
+
+      $("li.dropdown > a").addClass("dropdown-toggle");
+
+      $("li.dropdown > a").each(function() {
+        $(this).append('<span class="caret1 sub-drop" data-toggle="dropdown"></span>');
+      });
+
+      $("#menu-main-menu > li:last-child > a").addClass("red-link");
+      $("#menu-main-menu > li:last-child").prev().children().addClass("red-link");
+
+      $(document).on('click', '.sub-drop', function() {
+        $(this).parent().parent().find('.dropdown-menu').toggleClass('hidden');
+      });
+
+    });
+  </script>
+
+</head>
+
+<body style="margin-top:-100px;" class="page-template page-template-page-templates page-template-court-designer page-template-page-templatescourt-designer-php page page-id-548 custom-background custom-background-white custom-font-enabled single-author responsive-menu-slide-left">
+    <div id="main" class="wrapper">
+      <div id="primary" class="site-content">
+        <div id="content" role="main">
+            <div class="entry-content">
+              <div class="container mrg-top85">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1 class="dtl-title">Tennis Court Color Combinations | Court Designer</h1>
+                    <p class="dtl-txt">Use the SportMaster Tennis Court Designer to create your own tennis court color combinations. Choose from their 16 standard court colors.</p>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top:25px; margin-bottom:25px;">
+                  <div class="col-md-8 col-md-push-2 col-xs-12">
+                    <img id="outer_court" src="http://www.sportmaster.net/wp-content/themes/twentytwelve/images/outer-court/Light-Green.png" alt="Light Green" class="img-responsive pull-left">
+                    <img id="inner-court" src="http://www.sportmaster.net/wp-content/themes/twentytwelve/images/inner-court/Blue.png" alt="Blue" class="img-responsive inn-court">
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="col-xs-12 mrg-btm20">
+                        <h2 class="dtl-title">Inner Court Colors</h2></div>
+                    </div>
+                    <a href="javascript:void(0)" class="Forest-Green color-bx mrg-rht10" data-link="Forest-Green" data-toggle="tooltip" data-original-title="Forest Green" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Light-Green color-bx mrg-rht10" data-link="Light-Green" data-toggle="tooltip" data-original-title="Light Green" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Dark-Green color-bx mrg-rht10" data-link="Dark-Green" data-toggle="tooltip" data-original-title="Dark Green" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Beige color-bx mrg-rht10" data-link="Beige" data-toggle="tooltip" data-original-title="Beige" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Brown color-bx mrg-rht10" data-link="Brown" data-toggle="tooltip" data-original-title="Brown" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Red color-bx mrg-rht10" data-link="Red" data-toggle="tooltip" data-original-title="Red" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Sandstone color-bx mrg-rht10" data-link="Sandstone" data-toggle="tooltip" data-original-title="Sandstone" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Maroon color-bx mrg-rht10" data-link="Maroon" data-toggle="tooltip" data-original-title="Maroon" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Tournament-Purple color-bx mrg-rht10" data-link="Tournament-Purple" data-toggle="tooltip" data-original-title="Tournament-Purple" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Gray color-bx mrg-rht10" data-link="Gray" data-toggle="tooltip" data-original-title="Gray" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Blue color-bx mrg-rht10" data-link="Blue" data-toggle="tooltip" data-original-title="Blue" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Light-Blue color-bx mrg-rht10" data-link="Light-Blue" data-toggle="tooltip" data-original-title="Light-Blue" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Dove-Gray color-bx mrg-rht10" data-link="Dove-Gray" data-toggle="tooltip" data-original-title="Dove-Gray" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Ice-Blue color-bx mrg-rht10" data-link="Ice-Blue" data-toggle="tooltip" data-original-title="Ice-Blue" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Yellow color-bx mrg-rht10" data-link="Yellow" data-toggle="tooltip" data-original-title="Yellow" data-type="inner-court"></a>
+                    <a href="javascript:void(0)" class="Orange color-bx mrg-rht10" data-link="Orange" data-toggle="tooltip" data-original-title="Orange" data-type="inner-court"></a>
+                  </div>
+                  <div class="clearfix visible-xs"></div>
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="col-xs-12 mrg-btm20">
+                        <h2 class="dtl-title">Outer Court Colors</h2></div>
+                    </div>
+                    <a href="javascript:void(0)" class="Forest-Green color-bx mrg-rht10" data-link="Forest-Green" data-toggle="tooltip" data-original-title="Forest Green" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Light-Green color-bx mrg-rht10" data-link="Light-Green" data-toggle="tooltip" data-original-title="Light Green" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Dark-Green color-bx mrg-rht10" data-link="Dark-Green" data-toggle="tooltip" data-original-title="Dark Green" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Beige color-bx mrg-rht10" data-link="Beige" data-toggle="tooltip" data-original-title="Beige" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Brown color-bx mrg-rht10" data-link="Brown" data-toggle="tooltip" data-original-title="Brown" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Red color-bx mrg-rht10" data-link="Red" data-toggle="tooltip" data-original-title="Red" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Sandstone color-bx mrg-rht10" data-link="Sandstone" data-toggle="tooltip" data-original-title="Sandstone" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Maroon color-bx mrg-rht10" data-link="Maroon" data-toggle="tooltip" data-original-title="Maroon" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Tournament-Purple color-bx mrg-rht10" data-link="Tournament-Purple" data-toggle="tooltip" data-original-title="Tournament-Purple" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Gray color-bx mrg-rht10" data-link="Gray" data-toggle="tooltip" data-original-title="Gray" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Blue color-bx mrg-rht10" data-link="Blue" data-toggle="tooltip" data-original-title="Blue" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Light-Blue color-bx mrg-rht10" data-link="Light-Blue" data-toggle="tooltip" data-original-title="Light-Blue" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Dove-Gray color-bx mrg-rht10" data-link="Dove-Gray" data-toggle="tooltip" data-original-title="Dove-Gray" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Ice-Blue color-bx mrg-rht10" data-link="Ice-Blue" data-toggle="tooltip" data-original-title="Ice-Blue" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Yellow color-bx mrg-rht10" data-link="Yellow" data-toggle="tooltip" data-original-title="Yellow" data-type="outer-court"></a>
+                    <a href="javascript:void(0)" class="Orange color-bx mrg-rht10" data-link="Orange" data-toggle="tooltip" data-original-title="Orange" data-type="outer-court"></a>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p class="dtl-txt"><em>* Colors may vary slightly from actual product.</em></p>
+                    <h2 class="dtl-title">LEED Credit Qualifying Colors:</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 mrg-top20">
+                    <div class="Light-Green colorbx-dtl">
+                      Light Green LEED Credit SRI=31
+                    </div>
+                  </div>
+                  <div class="col-md-2 mrg-top20">
+                    <div class="Red colorbx-dtl">
+                      Red LEED Credit SRI=36
+                    </div>
+                  </div>
+                  <div class="col-md-2 mrg-top20">
+                    <div class="Sandstone colorbx-dtl">
+                      Sandstone LEED Credit SRI=46
+                    </div>
+                  </div>
+                  <div class="col-md-2 mrg-top20">
+                    <div class="Ice-Blue colorbx-dtl">
+                      Ice Blue LEED Credit SRI=62
+                    </div>
+                  </div>
+                  <div class="col-md-2 mrg-top20">
+                    <div class="Dove-Gray colorbx-dtl">
+                      Dove Gray LEED Credit SRI=33
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- .entry-content -->
+        </div>
+        <!-- #content -->
+      </div>
+      <!-- #primary -->
+    </div>
+
+</body>
+</html>
+
         x, a = MM_swapImage.arguments;
       document.MM_sr = new Array;
       for (i = 0; i < (a.length - 2); i += 3)
